@@ -1,0 +1,23 @@
+{
+  "name": "cat GIFs",
+  "version": "0.1",
+  "manifest_version": 2,
+  "background": {
+    "persistent": false,
+    "scripts": ["background.js"]
+  },
+  "chrome_url_overrides" : {
+    "newtab": "myPage.html"
+  },
+  "permissions": ["tabs", "activeTab", "<all_urls>"]
+}
+
+/* {
+"name": "cat GIF",
+"manifest_version": 2,
+"version": "0.1",
+"background": {
+  "scripts": ["background.js"]
+},
+"permissions": ["activeTab"]
+} */
