@@ -2,19 +2,15 @@
   "name": "password re-use alert",
   "version": "0.1",
   "manifest_version": 2,
+  "content_scripts": [
+   {
+     "matches": ["<all_urls>"],
+     "js": ["contentscript.js"]
+   }
+ ],
   "background": {
     "persistent": false,
     "scripts": ["background.js"]
   },
   "permissions": ["tabs", "activeTab", "<all_urls>"]
 }
-
-/* {
-"name": "cat GIF",
-"manifest_version": 2,
-"version": "0.1",
-"background": {
-  "scripts": ["background.js"]
-},
-"permissions": ["activeTab"]
-} */
