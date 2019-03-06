@@ -29,7 +29,6 @@ document.getElementById("myBtn").addEventListener("click", function() {
       console.log(`password submitted`);
     }
   });
-
   chrome.runtime.sendMessage({
     "message": "password_submitted",
     "password": x.password
