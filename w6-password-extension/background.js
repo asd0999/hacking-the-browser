@@ -1,4 +1,7 @@
-let x = [];
+let x = [{
+  url: 'default',
+  password: 'Password@12'
+}];
 let found = false;
 
 chrome.runtime.onMessage.addListener(
@@ -15,20 +18,21 @@ chrome.runtime.onMessage.addListener(
           if (i != j && x[i].url != x[j].url && x[i].password == x[j].password) {
             console.log("password re-use detected!");
             console.log(x[i], x[j]);
+            // debugger;
+            sendResponse({
+              "host1": x[i].url,
+              "host2": x[j].url
+            });
             found = true;
+            break;
             // alert();
           }
         }
         if (found) break;
       }
     }
+    return true;
   }
 );
 
 //everytime new entry is added in object, run this to check duplicate entry
-
-
-
-// function alert() {
-//   window.alert("stop using the same passwords for different websites!");
-// }
