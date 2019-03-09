@@ -1,43 +1,39 @@
-let x;
+//copy of background.js at prrof of concept stage as backup
+let x = [{
+  url: 'default',
+  password: 'Password@12'
+}];
+let found = false;
 
-// let forms = document.querySelectorAll("");
-//run at correct time
-//run on current tab
-
-
-//if an input with type attribute == password exists on a page, save url and password in an object
-let passwordInputs = document.querySelectorAll("input[type = password]");
-if (passwordInputs.length > 0) {
-  console.log("found input field password");
-}
-
-document.getElementById("myBtn").addEventListener("click", function() {
-
-  // $('form').on('submit', () => {
-  //
-  // })
-
-  passwordInputs.forEach(input => {
-    // does the input have a value?
-    if (input.value.length > 0) {
-      console.log("it has a value")
-      let password = input.value;
-      x = {
-        url: window.location.href,
-        password: password
-      };
-      console.log(`password submitted`);
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    // console.log("message received");
+    if (request.message === "password_submitted") {
+      // console.log(request.data);
+      x.push(request.data);
+      console.log(x[x.length - 1]);
+      found = false;
+      //vs i=0;i<x.length-1;i++ --> only checking the last entry with the rest
+      for (let i = x.length - 1; i <= x.length - 1; i++) {
+        for (let j = 0; j < x.length; j++) {
+          if (i != j && x[i].url != x[j].url && x[i].password == x[j].password) {
+            console.log("password re-use detected!");
+            console.log(x[i], x[j]);
+            // debugger;
+            sendResponse({
+              "host1": x[i].url,
+              "host2": x[j].url
+            });
+            found = true;
+            break;
+            // alert();
+          }
+        }
+        if (found) break;
+      }
     }
-  });
-  chrome.runtime.sendMessage({
-    "message": "password_submitted",
-    "password": x.password
-  }, function() {
-    console.log("message sent");
-  });
-});
+    return true;
+  }
+);
 
-
-// function alert() {
-//   window.alert("stop using the same passwords for different websites!");
-// }
+//everytime new entry is added in object, run this to check duplicate entry

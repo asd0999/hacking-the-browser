@@ -27,9 +27,18 @@ function assignBlur(newInput) {
       "data": x
     }, function(request) {
       console.log("response from sendMessage:", request);
-      let a = request.host1;
-      let b = request.host2;
-      window.alert(`you used the same password on ${b}. consider changing one of the passwords`);
+      let l = request.repeats.length;
+      console.log(l);
+      if (l == 1) {
+        window.alert(`You used the same password on ${request.repeats[0].url}`);
+      } else if (l == 2) {
+        window.alert(`You used the same password on ${request.repeats[0].url} and ${request.repeats[1].url}`);
+      } else if (l >= 3) {
+        window.alert(`You used the same password on ${request.repeats[0].url}, ${request.repeats[1].url} and ${request.repeats[2].url}`);
+      }
+      // let a = request.host1;
+      // let b = request.host2;
+      // window.alert(`You used the same password on ${b}. Consider changing one of the passwords to avoid being a victim of credential stuffing attacks! #nopwn`);
     });
   });
 }
@@ -46,7 +55,7 @@ function assignBlur(newInput) {
 //   window.alert(`you used the same password for ${} and ${}`);
 // }
 
-setInterval(doThis, 1000);
+setInterval(doThis, 500);
 
 // setInterval(function() {
 //   var insertedNodes = [];
