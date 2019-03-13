@@ -1,6 +1,6 @@
-//copy of background.js at prrof of concept stage as backup
+//copy of background.js at proof of concept stage as backup
 let x = {
-  "default": "Password@12"
+  // "default": "testpassword"
 };
 let found = false;
 

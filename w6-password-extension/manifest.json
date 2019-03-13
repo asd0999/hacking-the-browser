@@ -1,5 +1,5 @@
 {
-  "name": "password re-use alert",
+  "name": "Pass Dupe",
   "version": "0.1",
   "manifest_version": 2,
   "icons": { "16": "rsz_password16.png",

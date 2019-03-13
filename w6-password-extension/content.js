@@ -30,4 +30,4 @@ function assignBlur(newInput) {
   });
 }
 
-setInterval(doThis, 500);
+setInterval(doThis, 300);
