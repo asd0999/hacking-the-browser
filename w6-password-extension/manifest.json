@@ -2,6 +2,9 @@
   "name": "password re-use alert",
   "version": "0.1",
   "manifest_version": 2,
+  "icons": { "16": "rsz_password16.png",
+             "48": "rsz_password48.png",
+            "128": "rsz_password128.png" },
   "content_scripts": [
    {
      "matches": ["<all_urls>"],
