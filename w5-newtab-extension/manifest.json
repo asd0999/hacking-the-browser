@@ -2,6 +2,9 @@
   "name": "cat GIFs",
   "version": "0.1",
   "manifest_version": 2,
+  "icons": { "16": "rsz_catgif16.png",
+            "48": "rsz_catgif48.png",
+            "128": "rsz_catgif128.png" },
   "background": {
     "persistent": false,
     "scripts": ["background.js"]
@@ -11,13 +14,3 @@
   },
   "permissions": ["tabs", "activeTab", "<all_urls>"]
 }
-
-/* {
-"name": "cat GIF",
-"manifest_version": 2,
-"version": "0.1",
-"background": {
-  "scripts": ["background.js"]
-},
-"permissions": ["activeTab"]
-} */
