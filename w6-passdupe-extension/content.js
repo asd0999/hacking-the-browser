@@ -17,7 +17,7 @@ function assignBlur(newInput) {
     console.log("blur done");
     // console.log(newInput);
     var password = $(this).val();
-    var salt = "y0u_n33d_$4lt_2_m4k3_l3m0n4d3"
+    var salt = "y0u_n33d_$4lt_2_m4k3_L3m0n4d3"
     var SHA256 = new Hashes.SHA256;
     var passwordHash = SHA256.hex_hmac(password, salt)
     x = {
