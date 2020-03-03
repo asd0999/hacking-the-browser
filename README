@@ -1,0 +1,5 @@
+Homework for the Hacking the Browser class
+
+Final project was a Chrome extension that throws an alert everytime a user re-uses the same password on different websites.
+The passwords are stored locally as a salted hash!
+
